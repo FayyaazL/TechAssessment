@@ -4,10 +4,10 @@ namespace TechAssessment.Repositories.Interfaces
 {
     public interface ICalendarEntityRepository<T>
     {
-        Task AddAsync(Attendee? entity);
-        Task DeleteAsync(Attendee attendee);
-        Task<IEnumerable<Attendee>> GetAllAsync();
-        Task<Attendee> GetByIdAsync(int id);
-        Task UpdateAsync(Attendee attendee, Attendee? entity);
+        Task AddAsync(T? entity);
+        Task DeleteAsync(T entity);
+        Task<IEnumerable<T>> GetAllAsync();
+        Task<T> GetByIdAsync(int id);
+        Task UpdateAsync(T existingEntity, T? entity);
     }
 }

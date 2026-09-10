@@ -1,33 +1,12 @@
 ﻿using TechAssessment.Core.Entities;
-using TechAssessment.Services.Interfaces;
+using TechAssessment.Repositories.Interfaces;
 
 namespace TechAssessment.Services
 {
-    public class CalendarEventService : ICalendarEntityService<CalendarEvent>
+    public class CalendarEventService : CalendarEntityBaseService<CalendarEvent>
     {
-        public Task CreateAsync(CalendarEvent? entity)
+        public CalendarEventService(ICalendarEntityRepository<CalendarEvent> calendarEventRepository) : base(calendarEventRepository)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task DeleteAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<CalendarEvent>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<CalendarEvent> GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateAsync(int id, CalendarEvent? entity)
-        {
-            throw new NotImplementedException();
         }
     }
 }
