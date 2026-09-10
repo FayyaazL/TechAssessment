@@ -36,13 +36,9 @@ namespace TechAssessment.Services
             return await _repository.GetByIdAsync(id);
         }
 
-        public async Task UpdateAsync(int id, T? entity)
+        public async Task UpdateAsync(T? entity)
         {
-            var existingEntity = await _repository.GetByIdAsync(id);
-            if (existingEntity != null)
-            {
-                await _repository.UpdateAsync(id, entity);
-            }
+            await _repository.UpdateAsync(entity);
         }
     }
 }
