@@ -1,6 +1,7 @@
 <Solution>
   <Project Path="TechAssessment.Api/TechAssessment.Api.csproj" />
   <Project Path="TechAssessment.Core/TechAssessment.Core.csproj" />
+  <Project Path="TechAssessment.Notifications/TechAssessment.Notifications.csproj" Id="9ddb6d5b-1963-4c72-870e-b84b2e0088a8" />
   <Project Path="TechAssessment.Repositories/TechAssessment.Repositories.csproj" />
   <Project Path="TechAssessment.Services/TechAssessment.Services.csproj" />
 </Solution>

@@ -1,4 +1,5 @@
 ﻿using TechAssessment.Core.Entities;
+using TechAssessment.Notifications.Interfaces;
 using TechAssessment.Repositories.Interfaces;
 using TechAssessment.Services.Interfaces;
 
@@ -8,11 +9,13 @@ namespace TechAssessment.Services
     {
         private readonly ICalendarEntityRepository<CalendarEvent> _calendarEventRepository;
         private readonly ICalendarEntityRepository<Attendee> _attendeeRepository;
+        private readonly INotification _notificationService;
 
-        public CalendarService(ICalendarEntityRepository<CalendarEvent> calendarEventRepository, ICalendarEntityRepository<Attendee> attendeeRepository)
+        public CalendarService(ICalendarEntityRepository<CalendarEvent> calendarEventRepository, ICalendarEntityRepository<Attendee> attendeeRepository, INotification notificationService)
         {
             _calendarEventRepository = calendarEventRepository;
             _attendeeRepository = attendeeRepository;
+            _notificationService = notificationService;
         }
 
         public async Task AddAttendeeToEventAsync(int calendarEventId, int attendeeId)
@@ -23,6 +26,7 @@ namespace TechAssessment.Services
             attendee.Events.Add(calendarEvent);
             await _calendarEventRepository.UpdateAsync(calendarEvent);
             await _attendeeRepository.UpdateAsync(attendee);
+            _notificationService.SendAttendingNotification(attendee, calendarEvent);
         }
 
         public async Task RemoveAttendeeFromEventAsync(int calendarEventId, int attendeeId)
@@ -33,6 +37,7 @@ namespace TechAssessment.Services
             attendee.Events.Remove(calendarEvent);
             await _calendarEventRepository.UpdateAsync(calendarEvent);
             await _attendeeRepository.UpdateAsync(attendee);
+            _notificationService.SendNotAttendingNotification(attendee, calendarEvent);
         }
     }
 }

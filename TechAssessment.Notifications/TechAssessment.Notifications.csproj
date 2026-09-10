@@ -8,8 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TechAssessment.Core\TechAssessment.Core.csproj" />
-    <ProjectReference Include="..\TechAssessment.Notifications\TechAssessment.Notifications.csproj" />
-    <ProjectReference Include="..\TechAssessment.Repositories\TechAssessment.Repositories.csproj" />
   </ItemGroup>
 
 </Project>

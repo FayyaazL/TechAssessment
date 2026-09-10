@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TechAssessment.Core.Entities;
+using TechAssessment.Notifications;
+using TechAssessment.Notifications.Interfaces;
 using TechAssessment.Repositories;
 using TechAssessment.Repositories.DbContexts;
 using TechAssessment.Repositories.Interfaces;
@@ -25,6 +27,9 @@ builder.Services.AddScoped<ICalendarEntityService<CalendarEvent>, CalendarEventS
 
 builder.Services.AddScoped<ICalendarEntityRepository<Attendee>, AttendeeRepository>();
 builder.Services.AddScoped<ICalendarEntityRepository<CalendarEvent>, CalendarEventRepository>();
+
+// Add notification service dependency
+builder.Services.AddScoped<INotification, BlankNotification>();
 
 var app = builder.Build();
 
