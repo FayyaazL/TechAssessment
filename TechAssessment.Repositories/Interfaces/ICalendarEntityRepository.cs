@@ -1,6 +1,4 @@
-﻿using TechAssessment.Core.Entities;
-
-namespace TechAssessment.Repositories.Interfaces
+﻿namespace TechAssessment.Repositories.Interfaces
 {
     public interface ICalendarEntityRepository<T>
     {
@@ -8,6 +6,6 @@ namespace TechAssessment.Repositories.Interfaces
         Task DeleteAsync(T entity);
         Task<IEnumerable<T>> GetAllAsync();
         Task<T> GetByIdAsync(int id);
-        Task UpdateAsync(T existingEntity, T? entity);
+        Task UpdateAsync(int id, T? entity);
     }
 }

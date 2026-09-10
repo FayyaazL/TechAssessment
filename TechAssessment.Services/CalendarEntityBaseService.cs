@@ -41,7 +41,7 @@ namespace TechAssessment.Services
             var existingEntity = await _repository.GetByIdAsync(id);
             if (existingEntity != null)
             {
-                await _repository.UpdateAsync(existingEntity, entity);
+                await _repository.UpdateAsync(id, entity);
             }
         }
     }

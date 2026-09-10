@@ -1,9 +1,12 @@
 ﻿using TechAssessment.Core.Entities;
-using TechAssessment.Repositories.Interfaces;
+using TechAssessment.Repositories.DbContexts;
 
 namespace TechAssessment.Repositories
 {
-    public class AttendeeRepository : ICalendarEntityRepository<Attendee>
+    public class AttendeeRepository : CalendarEntityBaseRepository<Attendee>
     {
+        public AttendeeRepository(CalendarDbContext dbContext) : base(dbContext)
+        {
+        }
     }
 }
