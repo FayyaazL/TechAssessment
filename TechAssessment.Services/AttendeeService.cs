@@ -1,33 +1,49 @@
 ﻿using TechAssessment.Core.Entities;
+using TechAssessment.Repositories.Interfaces;
 using TechAssessment.Services.Interfaces;
 
 namespace TechAssessment.Services
 {
-    public class AttendeeService : IEnitityService<Attendee>
+    public class AttendeeService : ICalendarEntityService<Attendee>
     {
-        public Task CreateAsync(Attendee? entity)
+        private readonly ICalendarEntityRepository<Attendee> _attendeeRepository;
+
+        public AttendeeService(ICalendarEntityRepository<Attendee> attendeeRepository)
         {
-            throw new NotImplementedException();
+            _attendeeRepository = attendeeRepository;
         }
 
-        public Task DeleteAsync(int id)
+        public async Task CreateAsync(Attendee? entity)
         {
-            throw new NotImplementedException();
+            await _attendeeRepository.AddAsync(entity);
         }
 
-        public Task<IEnumerable<Attendee>> GetAllAsync()
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var attendee = await _attendeeRepository.GetByIdAsync(id);
+            if (attendee != null)
+            {
+                await _attendeeRepository.DeleteAsync(attendee);
+            }
         }
 
-        public Task<Attendee> GetByIdAsync(int id)
+        public async Task<IEnumerable<Attendee>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _attendeeRepository.GetAllAsync();
         }
 
-        public Task UpdateAsync(int id, Attendee? entity)
+        public async Task<Attendee> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _attendeeRepository.GetByIdAsync(id);
+        }
+
+        public async Task UpdateAsync(int id, Attendee? entity)
+        {
+            var attendee = await _attendeeRepository.GetByIdAsync(id);
+            if (attendee != null)
+            {
+                await _attendeeRepository.UpdateAsync(attendee, entity);
+            }
         }
     }
 }

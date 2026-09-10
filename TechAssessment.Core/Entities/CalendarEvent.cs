@@ -1,6 +1,6 @@
 ﻿namespace TechAssessment.Core.Entities
 {
-    public class Event
+    public class CalendarEvent
     {
         public string Title { get; set; }
         public string Description { get; set; }

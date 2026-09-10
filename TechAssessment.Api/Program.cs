@@ -20,12 +20,12 @@ builder.Services.AddDbContext<CalendarDbContext>(options =>
 
 // Add repository and service dependencies
 builder.Services.AddScoped<ICalendarService, CalendarService>();
-builder.Services.AddScoped<IEnitityService<Attendee>, AttendeeService>();
-builder.Services.AddScoped<IEnitityService<Event>, EventService>();
+builder.Services.AddScoped<ICalendarEntityService<Attendee>, AttendeeService>();
+builder.Services.AddScoped<ICalendarEntityService<CalendarEvent>, CalendarEventService>();
 
 builder.Services.AddScoped<ICalendarRepository, CalendarRepository>();
-builder.Services.AddScoped<IEntityRepository<Attendee>, AttendeeRepository>();
-builder.Services.AddScoped<IEntityRepository<Event>, EventRepository>();
+builder.Services.AddScoped<ICalendarEntityRepository<Attendee>, AttendeeRepository>();
+builder.Services.AddScoped<ICalendarEntityRepository<CalendarEvent>, CalendarEventRepository>();
 
 var app = builder.Build();
 

@@ -4,11 +4,11 @@ using TechAssessment.Services.Interfaces;
 
 namespace TechAssessment.Api.Controllers
 {
-    public class EntityControllerBase<T> : ControllerBase
+    public class CalendarEntityControllerBase<T> : ControllerBase
     {
-        protected readonly IEnitityService<T> _entityService;
+        protected readonly ICalendarEntityService<T> _entityService;
 
-        public EntityControllerBase(IEnitityService<T> eventService)
+        public CalendarEntityControllerBase(ICalendarEntityService<T> eventService)
         {
             _entityService = eventService;
         }

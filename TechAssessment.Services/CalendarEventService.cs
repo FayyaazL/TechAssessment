@@ -3,9 +3,9 @@ using TechAssessment.Services.Interfaces;
 
 namespace TechAssessment.Services
 {
-    public class EventService : IEnitityService<Event>
+    public class CalendarEventService : ICalendarEntityService<CalendarEvent>
     {
-        public Task CreateAsync(Event? entity)
+        public Task CreateAsync(CalendarEvent? entity)
         {
             throw new NotImplementedException();
         }
@@ -15,17 +15,17 @@ namespace TechAssessment.Services
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Event>> GetAllAsync()
+        public Task<IEnumerable<CalendarEvent>> GetAllAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task<Event> GetByIdAsync(int id)
+        public Task<CalendarEvent> GetByIdAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task UpdateAsync(int id, Event? entity)
+        public Task UpdateAsync(int id, CalendarEvent? entity)
         {
             throw new NotImplementedException();
         }

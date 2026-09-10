@@ -3,7 +3,7 @@ using TechAssessment.Repositories.Interfaces;
 
 namespace TechAssessment.Repositories
 {
-    public class AttendeeRepository : IEntityRepository<Attendee>
+    public class AttendeeRepository : ICalendarEntityRepository<Attendee>
     {
     }
 }

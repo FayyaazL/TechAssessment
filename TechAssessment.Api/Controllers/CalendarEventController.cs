@@ -6,11 +6,11 @@ namespace TechAssessment.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class EventController : EntityControllerBase<Event>
+    public class CalendarEventController : CalendarEntityControllerBase<CalendarEvent>
     {
-        private readonly IEnitityService<Event> _eventService;
+        private readonly ICalendarEntityService<CalendarEvent> _eventService;
 
-        public EventController(IEnitityService<Event> eventService) : base(eventService)
+        public CalendarEventController(ICalendarEntityService<CalendarEvent> eventService) : base(eventService)
         {
             _eventService = eventService;
         }

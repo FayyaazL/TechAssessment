@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TechAssessment.Services.Interfaces
 {
-    public interface IEnitityService<T>
+    public interface ICalendarEntityService<T>
     {
         Task CreateAsync(T? entity);
         Task DeleteAsync(int id);

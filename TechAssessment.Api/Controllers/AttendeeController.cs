@@ -6,11 +6,11 @@ namespace TechAssessment.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class AttendeeController : EntityControllerBase<Attendee>
+    public class AttendeeController : CalendarEntityControllerBase<Attendee>
     {
-        private readonly IEnitityService<Attendee> _attendeeService;
+        private readonly ICalendarEntityService<Attendee> _attendeeService;
 
-        public AttendeeController(IEnitityService<Attendee> attendeeService) : base(attendeeService)
+        public AttendeeController(ICalendarEntityService<Attendee> attendeeService) : base(attendeeService)
         {
             _attendeeService = attendeeService;
         }

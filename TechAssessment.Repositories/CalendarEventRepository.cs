@@ -3,7 +3,7 @@ using TechAssessment.Repositories.Interfaces;
 
 namespace TechAssessment.Repositories
 {
-    public class EventRepository : IEntityRepository<Event>
+    public class CalendarEventRepository : ICalendarEntityRepository<CalendarEvent>
     {
     }
 }
