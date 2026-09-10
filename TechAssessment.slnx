@@ -3,5 +3,6 @@
   <Project Path="TechAssessment.Core/TechAssessment.Core.csproj" />
   <Project Path="TechAssessment.Notifications/TechAssessment.Notifications.csproj" Id="9ddb6d5b-1963-4c72-870e-b84b2e0088a8" />
   <Project Path="TechAssessment.Repositories/TechAssessment.Repositories.csproj" />
+  <Project Path="TechAssessment.Services.Tests/TechAssessment.Services.Tests.csproj" Id="79b4dafe-d0ea-437b-a937-098b6d612f08" />
   <Project Path="TechAssessment.Services/TechAssessment.Services.csproj" />
 </Solution>
