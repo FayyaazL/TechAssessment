@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="TechAssessment.Api/TechAssessment.Api.csproj" />
+  <Project Path="TechAssessment.Core/TechAssessment.Core.csproj" />
+  <Project Path="TechAssessment.Repositories/TechAssessment.Repositories.csproj" />
+  <Project Path="TechAssessment.Services/TechAssessment.Services.csproj" />
+</Solution>

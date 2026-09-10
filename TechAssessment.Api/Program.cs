@@ -1,3 +1,4 @@
+using TechAssessment.Core.Entities;
 using TechAssessment.Repositories;
 using TechAssessment.Repositories.Interfaces;
 using TechAssessment.Services;
@@ -14,6 +15,8 @@ builder.Services.AddSwaggerGen();
 
 // Add repository and service dependencies
 builder.Services.AddScoped<ICalendarService, CalendarService>();
+builder.Services.AddScoped<IEnitityService<Attendee>, AttendeeService>();
+builder.Services.AddScoped<IEnitityService<Event>, EventService>();
 builder.Services.AddScoped<ICalendarRepository, CalendarRepository>();
 
 var app = builder.Build();
