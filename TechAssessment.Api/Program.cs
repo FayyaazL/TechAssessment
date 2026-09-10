@@ -1,5 +1,7 @@
+using Microsoft.EntityFrameworkCore;
 using TechAssessment.Core.Entities;
 using TechAssessment.Repositories;
+using TechAssessment.Repositories.DbContexts;
 using TechAssessment.Repositories.Interfaces;
 using TechAssessment.Services;
 using TechAssessment.Services.Interfaces;
@@ -13,11 +15,17 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext<CalendarDbContext>(options =>
+    options.UseInMemoryDatabase("CalendarDb"));
+
 // Add repository and service dependencies
 builder.Services.AddScoped<ICalendarService, CalendarService>();
 builder.Services.AddScoped<IEnitityService<Attendee>, AttendeeService>();
 builder.Services.AddScoped<IEnitityService<Event>, EventService>();
+
 builder.Services.AddScoped<ICalendarRepository, CalendarRepository>();
+builder.Services.AddScoped<IEntityRepository<Attendee>, AttendeeRepository>();
+builder.Services.AddScoped<IEntityRepository<Event>, EventRepository>();
 
 var app = builder.Build();
 
