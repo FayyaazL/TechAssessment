@@ -7,7 +7,7 @@ namespace TechAssessment.Repositories
     public class CalendarEntityBaseRepository<T> : ICalendarEntityRepository<T>
         where T : class
     {
-        private readonly CalendarDbContext _dbContext;
+        protected readonly CalendarDbContext _dbContext;
 
         public CalendarEntityBaseRepository(CalendarDbContext dbContext)
         {
@@ -26,24 +26,20 @@ namespace TechAssessment.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public virtual async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _dbContext.Set<T>().ToListAsync();
         }
 
-        public async Task<T> GetByIdAsync(int id)
+        public virtual async Task<T> GetByIdAsync(int id)
         {
             return await _dbContext.Set<T>().FindAsync(id);
         }
 
-        public async Task UpdateAsync(int id, T? entity)
+        public async Task UpdateAsync(T? entity)
         {
-            var existingEntity = await _dbContext.Set<T>().FindAsync(id);
-            if (existingEntity != null)
-            {
-                _dbContext.Entry(existingEntity).CurrentValues.SetValues(entity);
-                await _dbContext.SaveChangesAsync();
-            }
+            _dbContext.Entry(entity).State = EntityState.Modified;
+            await _dbContext.SaveChangesAsync();
         }
     }
 }
