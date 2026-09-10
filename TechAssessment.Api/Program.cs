@@ -23,7 +23,6 @@ builder.Services.AddScoped<ICalendarService, CalendarService>();
 builder.Services.AddScoped<ICalendarEntityService<Attendee>, AttendeeService>();
 builder.Services.AddScoped<ICalendarEntityService<CalendarEvent>, CalendarEventService>();
 
-builder.Services.AddScoped<ICalendarRepository, CalendarRepository>();
 builder.Services.AddScoped<ICalendarEntityRepository<Attendee>, AttendeeRepository>();
 builder.Services.AddScoped<ICalendarEntityRepository<CalendarEvent>, CalendarEventRepository>();
 

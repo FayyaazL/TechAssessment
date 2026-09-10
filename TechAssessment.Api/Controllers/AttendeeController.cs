@@ -8,11 +8,16 @@ namespace TechAssessment.Api.Controllers
     [Route("[controller]")]
     public class AttendeeController : CalendarEntityControllerBase<Attendee>
     {
-        private readonly ICalendarEntityService<Attendee> _attendeeService;
-
         public AttendeeController(ICalendarEntityService<Attendee> attendeeService) : base(attendeeService)
         {
-            _attendeeService = attendeeService;
+        }
+
+        [HttpPost("CreateAttendee")]
+        public async Task<IActionResult> AddAttendeeAsync(string name, string email)
+        {
+            var attendee = new Attendee { Name = name, Email = email };
+            await _entityService.CreateAsync(attendee);
+            return Ok(attendee);
         }
     }
 }

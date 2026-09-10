@@ -15,6 +15,19 @@ namespace TechAssessment.Api.Controllers
             _calendarService = calendarService;
         }
 
-        
+        [HttpPost("events/{eventId}/attendees/{attendeeId}")]
+        public async Task<IActionResult> AddAttendeeToEvent(int eventId, int attendeeId)
+        {
+            await _calendarService.AddAttendeeToEventAsync(eventId, attendeeId);
+            return Ok();
+        }
+
+        [HttpDelete("events/{eventId}/attendees/{attendeeId}")]
+        public async Task<IActionResult> RemoveAttendeeFromEvent(int eventId, int attendeeId)
+        {
+            await _calendarService.RemoveAttendeeFromEventAsync(eventId, attendeeId);
+            return Ok();
+        }
+
     }
 }

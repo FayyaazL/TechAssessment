@@ -35,7 +35,7 @@ namespace TechAssessment.Api.Controllers
         [HttpPut("Update")]
         public async Task<IActionResult> Update(int id, [FromBody] T entity)
         {
-            await _entityService.UpdateAsync(id, entity);
+            await _entityService.UpdateAsync(entity);
             return Ok();
         }
 
